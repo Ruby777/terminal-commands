@@ -10,24 +10,15 @@ module.exports.ls = () => {
     });
 };
 
-module.exports.touch = () => {
-    fs.('./', (err, files) => {
-        const filesToString = files.reduce((acc,file) => {
-            return `${acc} ${file}`;
-        }, '');
-  
-        console.log(filesToString);
-      });
-
-
+module.exports.touch = (userInput)=> {
+    fs.writeFile(userInput, data,(err)=>{
+        if(err)throw err;
+        console.log('success');
+    });
 };
 
-module.exports.mkdir = () => {
-    fs.mkdir('./', (err, ) => {
-        const newFolder = files.((acc,file) => {
-            return `${acc} ${file}`;
-        }, '');
-  
-        console.log(newFolder + " has been created");
+module.exports.mkdir = (userInput) => {
+    fs.mkdir(userInput, { recursive:true }, (err) => {
+        if(err) throw err;
     });
 };
